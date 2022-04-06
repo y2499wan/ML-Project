@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d95e8ac-a93a-4c4b-a5a8-2fbd5cc339f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/data_preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/data_preprocessing.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="7d95e8ac-a93a-4c4b-a5a8-2fbd5cc339f2" name="Changes" comment="ARIMA.py imdplementedd" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,11 +31,42 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649280354708</updated>
-      <workItem from="1649280356611" duration="405000" />
+      <workItem from="1649280356611" duration="783000" />
     </task>
+    <task id="LOCAL-00001" summary="ARIMA.py implemented">
+      <created>1649280860065</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1649280860065</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ARIMA.py imdplementedd">
+      <created>1649280985515</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649280985515</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ARIMA.py implemented" />
+    <MESSAGE value="ARIMA.py imdplementedd" />
+    <option name="LAST_COMMIT_MESSAGE" value="ARIMA.py imdplementedd" />
   </component>
 </project>
