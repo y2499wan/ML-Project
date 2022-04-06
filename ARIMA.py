@@ -101,7 +101,7 @@ fit_seq - x_train
 
 # 预测测试集
 # 这里测试数据的周期性是根据seasonal对象打印的结果，看到里面的数据每7天一个周期，2014-08-01~2014-08-10的数据正好和2014-04-04~2014-04-13的数据一致
-decomposition = seasonal_decompose(x_val, period=7)
+decomposition = seasonal_decompose(x_test, period=7)
 trend = decomposition.trend
 seasonal = decomposition.seasonal
 residual = decomposition.resid
@@ -116,13 +116,13 @@ predict_seq = predict_seq.add(residual_predict_seq)
 
 '''
 plt.plot(predict_seq, color='red', label='predict_seq')
-plt.plot(x_val, color='blue', label='purchase_seq_test')
+plt.plot(x_test, color='blue', label='purchase_seq_test')
 plt.legend(loc='best')
 plt.show()
 '''
 
 train_error = fit_seq / x_train - 1
-val_error = predict_seq / x_val - 1
+val_error = predict_seq / x_test - 1
 e1 = np.mean(train_error)
 e2 = np.mean(val_error)
 print('The average training error is {:.2f}%. \nThe average testing error is {:.2f}%.'.format(e1 * 100, e2 * 100))
