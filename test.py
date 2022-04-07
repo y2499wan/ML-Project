@@ -38,7 +38,7 @@ batch_size = 64
 time_embed_size = 2
 #=======================================================================
 
-filename = 'TSLA'
+filename = 'AMZN'
 clean_data(filename)
 df = pd.read_csv(filename+'_cleaned.csv')
 X = df.iloc[:,1:]
