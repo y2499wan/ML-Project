@@ -29,7 +29,7 @@ class EncoderLayer(torch.nn.Module):
         a = self.attn(x)
         x = self.norm1(x + a)
         
-        a = self.fc1(F.elu(self.fc2(x)))
+        a = self.fc1(F.relu(self.fc2(x)))
         x = self.norm2(x + a)
         
         return x
@@ -53,7 +53,7 @@ class DecoderLayer(torch.nn.Module):
         a = self.attn2(x, kv = enc)
         x = self.norm2(a + x)
         
-        a = self.fc1(F.elu(self.fc2(x)))
+        a = self.fc1(F.relu(self.fc2(x)))
         
         x = self.norm3(x + a)
         return x
@@ -80,6 +80,9 @@ class Transformer(torch.nn.Module):
         
         self.time = SineActivation(dim_val, time_embd)
         
+        #/////////////////////////////--------------------------------------------------
+        # self.fc1 = nn.linear(self.dim_val,)
+        
         # Dense layers for managing network inputs and outputs
         # self.enc_input_fc = nn.Linear(input_size, dim_val)
         # self.dec_input_fc = nn.Linear(input_size, dim_val)
@@ -90,9 +93,8 @@ class Transformer(torch.nn.Module):
         #encoder
         x = torch.reshape(x,(self.batch_size*self.enc_seq_len,self.dim_val_old))
         t2v = self.time(x)
-        x = torch.cat((x,t2v),axis=1) # concatenate t2v to orginal data
+        x = torch.cat((x,t2v),axis=-1) # concatenate t2v to orginal data
         x = torch.reshape(x,(self.batch_size,self.enc_seq_len,self.dim_val))
-        print(x.shape)
         
         
         e = self.encs[0](x)
@@ -105,7 +107,7 @@ class Transformer(torch.nn.Module):
             # d = dec(d, e)
             
         #output
+        e = F.relu((e))
         x = self.out_fc(e.flatten(start_dim=1))
-        print(x.shape)
         
         return x
