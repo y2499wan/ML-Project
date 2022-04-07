@@ -26,13 +26,13 @@ output_sequence_length = 1
 dim_val = 5 # input data # features
 dim_attn = 128
 lr = 0.000001
-epochs = 50
+epochs = 20
 
 n_heads = 4 
 
 n_decoder_layers = 2
-n_encoder_layers = 2
-batch_size = 32
+n_encoder_layers = 3
+batch_size = 64
 
 
 # time to vec
@@ -66,42 +66,77 @@ model = Transformer(dim_val, dim_attn, batch_size, enc_seq_len, dec_seq_len, out
                     n_decoder_layers, n_encoder_layers, n_heads, time_embed_size)
 
 
-loader = DataLoader(x_train.astype(np.float32), batch_size=batch_size, 
-                    shuffle=False, drop_last=True)
+
 
 optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 loss_fc = torch.nn.MSELoss()
+mae = torch.nn.L1Loss()
 #print(x_train[:900,:,3].shape)
 
-losses = []
-losses1 = []
 
-for i in range(epochs):
-    print("epoch \n",i)
-    for data in loader:
+def epoch_train(dataloader):
+    model.train()
+    batch_size = len(next(iter(dataloader)))
+    losses = 0 # mse
+    losses1 = 0 # percentage loss
+    
+    for data in iter(dataloader):
         x_train = data
-        #print("oooo",x_train.shape)
-        #x_train = torch.from_numpy(x_train)
         y_train = data[:,:,3] #  close price
-      
+  
         y_pred = model(x_train)
-        #print(net_out.shape,Y.shape)
         loss = loss_fc(y_pred,y_train)
-        #loss = torch.mean((y_pred - y_train) ** 2)
-        loss1 = torch.mean(torch.div(torch.abs((y_pred - y_train)),y_train))
-
+        #loss1 = torch.mean(torch.div(torch.abs(y_pred - y_train),y_train))
+        loss1 = mae(y_pred,y_train)
+        
         loss.backward()
         optimizer.step()
+        
+        losses += loss.item()/batch_size
+        losses1 += loss1.item()/batch_size #mae
+                
+    return losses,losses1
 
-        losses.append(loss.item())
-        losses1.append(loss1.item())
+def epoch_test(dataloader):
+    model.eval()
+    batch_size = len(next(iter(dataloader)))
+    losses = 0 # mse
+    losses1 = 0 # percentage loss
+    for data in dataloader:
+        x_test = data
+        y_test = data[:,:,3]
+        y_pred = model(x_test)
+        loss = loss_fc(y_pred,y_test)
+        loss1 = mae(y_pred,y_test)
+
+        #loss1 = torch.mean(torch.div(torch.abs(y_pred - y_test),y_test))
+        
+        losses += loss.item()/batch_size
+        losses1 += loss1.item()/batch_size #mae
+        
+        
+    return losses,losses1
     
 
-print(losses1)
-plt.plot(losses)
+def run_epoch(epochs):
+    train = []
+    val = []
+    train_loader = DataLoader(x_train.astype(np.float32), batch_size=batch_size, 
+                    shuffle=False, drop_last=True)
+    val_loader = DataLoader(x_val.astype(np.float32), batch_size=batch_size, 
+                    shuffle=False, drop_last=True)
+    for epoch in range(epochs):
+        train_mse, train_mae = epoch_train(train_loader)
+        train.append(train_mse)
+        val_mse, val_mae = epoch_test(val_loader)
+        val.append(val_mse)
+        print('Epoch[{}/{}] | train(mse):{:.6f}, mae:{:.6f} | test(mse):{:.6f}, mae:{:.6f}'
+              .format(epoch+1, epochs, train_mse, train_mae, val_mse, val_mae))
+    plt.plot(train)
+    plt.plot(val)
+    plt.show()
 
-
-    
+run_epoch(epochs)    
     
     
     
