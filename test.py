@@ -14,8 +14,7 @@ from TransformerNetwork import *
 from t2v import *
 from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
-
-
+from cleanData import clean_data
 
 # hyperparameter
 window_size = 128
@@ -39,7 +38,9 @@ batch_size = 64
 time_embed_size = 2
 #=======================================================================
 
-df = pd.read_csv("cleaned_data")
+filename = 'TSLA'
+clean_data(filename)
+df = pd.read_csv(filename+'_cleaned.csv')
 X = df.iloc[:,1:]
 y = df["Close"]
 x,y = X.to_numpy(),y.to_numpy()
