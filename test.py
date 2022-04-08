@@ -178,7 +178,11 @@ def run_epoch(epochs):
         train.append(train_mse)
         val_mse, val_mae = epoch_test(val_loader)
         val.append(val_mse)
+<<<<<<< HEAD
         str = ('Stock{} Epoch[{}/{}] | train(mse):{:.6f}, mae:{:.6f} | test(mse):{:.6f}, mape:{:.6f}\n'
+=======
+        str = ('Stock {} Epoch[{}/{}] | train(mse):{:.6f}, mae:{:.6f} | test(mse):{:.6f}, mae:{:.6f}\n'
+>>>>>>> 6322e9ca8e8c4399f6a0b2e6423e7cc0999685c1
               .format(stock_name, epoch+1, epochs, train_mse, train_mae, val_mse, val_mae))
         print(str, end='')
         if epoch == epochs-1:

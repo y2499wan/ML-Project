@@ -1,6 +1,6 @@
-StockAMZN Epoch[20/20] | train(mse):0.031704, mae:0.241078 | test(mse):0.002974, mae:0.094943
-StockIBM Epoch[20/20] | train(mse):0.027879, mae:0.205256 | test(mse):0.002182, mae:0.054792
-StockTSLA Epoch[20/20] | train(mse):0.050024, mae:0.293040 | test(mse):0.005600, mae:0.078892
-StockAAPL Epoch[20/20] | train(mse):0.034329, mae:0.239978 | test(mse):0.002047, mae:0.046226
-StockAAPL Epoch[5/5] | train(mse):0.115266, mae:0.541056 | test(mse):0.004422, mae:0.071699
-StockPFE Epoch[20/20] | train(mse):0.033319, mae:0.225759 | test(mse):0.010076, mae:0.128298
+Stock AMZN Epoch[20/20] | train(mse):0.031704, mae:0.241078 | test(mse):0.002974, mape:0.094943
+Stock IBM Epoch[20/20] | train(mse):0.027879, mae:0.205256 | test(mse):0.002182, mape:0.054792
+Stock TSLA Epoch[20/20] | train(mse):0.050024, mae:0.293040 | test(mse):0.005600, mape:0.078892
+Stock AAPL Epoch[20/20] | train(mse):0.034329, mae:0.239978 | test(mse):0.002047, mape:0.046226
+Stock AAPL Epoch[5/5] | train(mse):0.115266, mae:0.541056 | test(mse):0.004422, mape:0.071699
+Stock PFE Epoch[20/20] | train(mse):0.033319, mae:0.225759 | test(mse):0.010076, mape:0.128298
