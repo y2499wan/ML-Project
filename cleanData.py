@@ -79,7 +79,7 @@ def clean_data(filename):
     df[(df.Volume == 0)]
 
     data = df.iloc[:, 1:].to_numpy()
-    # data = fft_denoiser(data,0.01,True)
+    data = fft_denoiser(data,0.001,True)
 
     """https://github.com/JanSchm/CapMarket/blob/master/bot_experiments/IBM_Transformer%2BTimeEmbedding.ipynb"""
 
@@ -95,4 +95,4 @@ def clean_data(filename):
     df_dpc.to_csv(output)
 
 if __name__ == '__main__':
-    clean_data('IBM')
+    clean_data('AAPL')

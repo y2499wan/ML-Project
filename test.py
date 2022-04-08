@@ -29,7 +29,7 @@ input_size = 5
 dim_val = 64 # embedding size
 dim_attn = 128
 lr = 0.001
-epochs = 1 #20
+epochs = 20
 
 n_heads = 8
 
@@ -41,7 +41,7 @@ batch_size = 64
 # time to vec
 time_embed_size = 2
 #=======================================================================
-stock_name = 'AMZN'
+stock_name = 'PFE'
 df = pd.read_csv(stock_name + "_cleaned.csv")
 
 scaler_x = MinMaxScaler()
@@ -183,6 +183,7 @@ def run_epoch(epochs):
         print(str, end='')
         if epoch == epochs-1:
             to_output.write(str)
+    to_output.close()
     plt.plot(train)
     plt.plot(val)
     plt.show()
