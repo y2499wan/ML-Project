@@ -10,7 +10,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-# from utils import *
+from utils import *
 from MultiheadAttn import *
 from t2v import *
 
@@ -59,11 +59,11 @@ class DecoderLayer(torch.nn.Module):
         return x
 
 class Transformer(torch.nn.Module):
-    def __init__(self, dim_val, dim_attn, batch_size, enc_seq_len, dec_seq_len, out_seq_len, 
+    def __init__(self, dim_val, dim_attn, input_size, batch_size, enc_seq_len, dec_seq_len, out_seq_len, 
                  n_decoder_layers = 1, n_encoder_layers = 1, n_heads = 1, time_embd=2):
         super(Transformer, self).__init__()
-        self.dim_val_old = dim_val
-        self.dim_val = dim_val + time_embd
+        self.dim_val = dim_val
+        self.input_size = input_size+time_embd
         self.dec_seq_len = dec_seq_len
         self.batch_size = batch_size
         self.enc_seq_len = enc_seq_len
@@ -78,23 +78,27 @@ class Transformer(torch.nn.Module):
         # for i in range(n_decoder_layers):
         #     self.decs.append(DecoderLayer(dim_val, dim_attn, n_heads))
         
-        self.time = SineActivation(dim_val, time_embd)
+        self.time = SineActivation(input_size, time_embd)
+        #self.pos = PositionalEncoding(dim_val)
         
         #/////////////////////////////--------------------------------------------------
         # self.fc1 = nn.linear(self.dim_val,)
         
         # Dense layers for managing network inputs and outputs
-        # self.enc_input_fc = nn.Linear(input_size, dim_val)
+        self.enc_input_fc = nn.Linear(self.input_size, dim_val)
         # self.dec_input_fc = nn.Linear(input_size, dim_val)
         self.out_fc = nn.Linear(self.dim_val*enc_seq_len, 1)
         
     
     def forward(self, x):
         #encoder
-        x = torch.reshape(x,(self.batch_size*self.enc_seq_len,self.dim_val_old))
+        #x = self.enc_input_fc(x)
+        x = torch.reshape(x,(self.batch_size*self.enc_seq_len,self.input_size-self.time_embd))
         t2v = self.time(x)
         x = torch.cat((x,t2v),axis=-1) # concatenate t2v to orginal data
-        x = torch.reshape(x,(self.batch_size,self.enc_seq_len,self.dim_val))
+        x = torch.reshape(x,(self.batch_size,self.enc_seq_len,self.input_size))
+        x = self.enc_input_fc(x)
+        #x = self.pos(x)
         
         
         e = self.encs[0](x)
