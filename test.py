@@ -29,7 +29,7 @@ input_size = 5
 dim_val = 64 # embedding size
 dim_attn = 128
 lr = 0.001
-epochs = 60 #20
+epochs = 1 #20
 
 n_heads = 8
 
@@ -41,8 +41,8 @@ batch_size = 64
 # time to vec
 time_embed_size = 2
 #=======================================================================
-
-df = pd.read_csv("IBM_cleaned.csv")
+stock_name = 'AMZN'
+df = pd.read_csv(stock_name + "_cleaned.csv")
 
 scaler_x = MinMaxScaler()
 scaler_y = MinMaxScaler()
@@ -165,7 +165,7 @@ def epoch_test(dataloader):
         
     return losses,losses1
     
-
+to_output = open('output.txt','a')
 def run_epoch(epochs):
     train = []
     val = [] # float to double -> .astype(np.float32)
@@ -178,8 +178,11 @@ def run_epoch(epochs):
         train.append(train_mse)
         val_mse, val_mae = epoch_test(val_loader)
         val.append(val_mse)
-        print('Epoch[{}/{}] | train(mse):{:.6f}, mae:{:.6f} | test(mse):{:.6f}, mae:{:.6f}'
-              .format(epoch+1, epochs, train_mse, train_mae, val_mse, val_mae))
+        str = ('Stock{} Epoch[{}/{}] | train(mse):{:.6f}, mae:{:.6f} | test(mse):{:.6f}, mae:{:.6f}\n'
+              .format(stock_name, epoch+1, epochs, train_mse, train_mae, val_mse, val_mae))
+        print(str, end='')
+        if epoch == epochs-1:
+            to_output.write(str)
     plt.plot(train)
     plt.plot(val)
     plt.show()
