@@ -19,7 +19,6 @@ from sklearn.metrics import mean_absolute_percentage_error
 from hyperparameters import *
 
 #=======================================================================
-stock_name = 'PFE'
 df = pd.read_csv(stock_name + "_cleaned.csv")
 
 scaler_x = MinMaxScaler()

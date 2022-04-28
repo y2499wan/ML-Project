@@ -5,3 +5,4 @@ Stock AAPL Epoch[20/20] | train(mse):0.034329, mae:0.239978 | test(mse):0.002047
 Stock AAPL Epoch[5/5] | train(mse):0.115266, mae:0.541056 | test(mse):0.004422, mape:0.071699
 Stock PFE Epoch[20/20] | train(mse):0.033319, mae:0.225759 | test(mse):0.010076, mape:0.128298
 Stock PFE Epoch[20/20] | train(mse):0.033285, mae:0.226015 | test(mse):0.009934, mape:0.129302
+Stock PFE Epoch[20/20] | train(mse):0.033305, mae:0.226018 | test(mse):0.009919, mape:0.128980
