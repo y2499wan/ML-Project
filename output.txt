@@ -13,3 +13,5 @@ Stock PFE Epoch[5/5] | train(mse):0.091991, mape:0.452873 | test(mse):0.018426, 
 Stock PFE Epoch[5/5] | train(mse):0.162575, mape:0.621063 | test(mse):0.014310, mape:0.205460
 Stock PFE Epoch[5/5] | train(mse):0.130939, mape:0.563491 | test(mse):0.025950, mape:0.194941
 Stock PFE Epoch[5/5] | train(mse):0.173064, mape:0.651840 | test(mse):0.024992, mape:0.191324
+Stock PFE Epoch[5/5] | train(mse):0.094197, mape:0.469720 | test(mse):0.014751, mape:0.209788
+Stock PFE Epoch[5/5] | train(mse):0.100405, mape:0.450843 | test(mse):0.023584, mape:0.184970
