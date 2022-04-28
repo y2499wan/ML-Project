@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_percentage_error
 from hyperparameters import *
+import uuid
 
 
 def sliding_window(x, y, window_size):
@@ -100,16 +101,18 @@ def run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, mae
                               shuffle=False, drop_last=True)
     val_loader = DataLoader(val_dataset, batch_size=batch_size,
                             shuffle=False, drop_last=True)
+    random_filename = 'results/' + str(uuid.uuid1()) + '.jpg'
     for epoch in range(epochs):
         train_mse, train_mae = epoch_train(train_loader, model, optimizer, loss_fc, mae)
         train.append(train_mse)
         val_mse, val_mae = epoch_test(val_loader, model, loss_fc)
         val.append(val_mse)
-        str = ('Stock {} Epoch[{}/{}] | train(mse):{:.6f}, mape:{:.6f} | test(mse):{:.6f}, mape:{:.6f}\n'
-               .format(stock_name, epoch + 1, epochs, train_mse, train_mae, val_mse, val_mae))
-        print(str, end='')
+        string = ('Stock {} Epoch[{}/{}] | train(mse):{:.6f}, mape:{:.6f} | '
+                  'test(mse):{:.6f}, mape:{:.6f}\n{}\n'
+                  .format(stock_name, epoch + 1, epochs, train_mse, train_mae, val_mse, val_mae, random_filename))
+        print(string, end='')
         if epoch == epochs - 1:
-            to_output.write(str)
+            to_output.write(string)
     to_output.close()
     plt.plot(train, label='training_error')
     plt.plot(val, label='validation_error')
@@ -118,3 +121,4 @@ def run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, mae
     plt.title("Error vs Epoch")
     plt.legend()
     plt.show()
+    plt.savefig(random_filename)

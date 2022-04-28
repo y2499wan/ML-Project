@@ -3,17 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7d95e8ac-a93a-4c4b-a5a8-2fbd5cc339f2" name="Changes" comment="data moved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanData.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned_data/AAPL_cleaned.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned_data/AMZN_cleaned.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned_data/IBM_cleaned.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned_data/PFE_cleaned.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TSLA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TSLA_cleaned.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raw_data/AAPL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raw_data/AMZN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raw_data/IBM.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raw_data/PFE.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_methods.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +73,7 @@
       <updated>1649280354708</updated>
       <workItem from="1649280356611" duration="1077000" />
       <workItem from="1651173859463" duration="466000" />
-      <workItem from="1651175240349" duration="3677000" />
+      <workItem from="1651175240349" duration="4882000" />
     </task>
     <task id="LOCAL-00001" summary="ARIMA.py implemented">
       <created>1649280860065</created>
@@ -200,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651178905902</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="data moved">
+      <created>1651179084466</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1651179084466</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

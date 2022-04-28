@@ -35,5 +35,5 @@ model = Transformer(dim_val, dim_attn, input_size, batch_size, enc_seq_len, dec_
 optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 loss_fc = torch.nn.MSELoss()
 mae = torch.nn.L1Loss()
-to_output = open('output.txt', 'a')
+to_output = open('results/output.txt', 'a')
 run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, mae, to_output)
