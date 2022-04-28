@@ -93,7 +93,7 @@ def epoch_test(dataloader, model, loss_fc):
     return losses, losses1
 
 
-def run_epoch(epochs, to_output, train_dataset, val_dataset, model, optimizer, loss_fc, mae):
+def run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, mae, to_output):
     train = []
     val = []  # float to double -> .astype(np.float32)
     train_loader = DataLoader(train_dataset, batch_size=batch_size,
