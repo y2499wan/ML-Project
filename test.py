@@ -21,13 +21,11 @@ from hyperparameters import *
 
 # =======================================================================
 df = pd.read_csv(stock_name + "_cleaned.csv")
-
 scaler_x = MinMaxScaler()
 scaler_y = MinMaxScaler()
 df = scaler_x.fit_transform(df)
-x = df[:, 1:]
-y = df[:, 4]
-y = y.reshape(-1, 1)
+x_raw = df[:, 1:]
+y_raw = df[:, 4].reshape(-1,1)
 
 
 def sliding_window(x, y, window_size):
@@ -39,8 +37,8 @@ def sliding_window(x, y, window_size):
     return xx, yy
 
 
-x, y = sliding_window(x, y, window_size)
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1, shuffle=False)
+x_slide, y_slide = sliding_window(x_raw, y_raw, window_size)
+x_train, x_test, y_train, y_test = train_test_split(x_slide, y_slide, test_size=0.2, random_state=1, shuffle=False)
 x_train = torch.tensor(x_train.astype(np.float32))
 y_train = torch.tensor(y_train.astype(np.float32))
 x_val = torch.tensor(x_test.astype(np.float32))
@@ -59,9 +57,7 @@ mae = torch.nn.L1Loss()
 
 
 def _divide_no_nan(a, b):
-    """
-    Auxiliary funtion to handle divide by 0
-    """
+    # Auxiliary function to handle divide by 0
     div = a / b
     div[div != div] = 0.0
     div[div == float('inf')] = 0.0
@@ -77,7 +73,7 @@ def mape_loss(y, y_hat, mask=None):
     return mape
 
 
-def epoch_train(dataloader):
+def epoch_train(dataloader, x_train, y_train):
     model.train()
     batch_size = len(next(iter(dataloader)))
     losses = 0  # mse
@@ -104,7 +100,7 @@ def epoch_train(dataloader):
     return losses, losses1
 
 
-def epoch_test(dataloader):
+def epoch_test(dataloader, x_test, y_test):
     model.eval()
     batch_size = len(next(iter(dataloader)))
     losses = 0  # mse
@@ -123,7 +119,7 @@ def epoch_test(dataloader):
 
         loss = loss_fc(y_pred, y_test)
         # loss1 = torch.mean(torch.div(torch.abs(y_pred - y_test),y_test))
-        loss1 = MAPELoss(y_test, y_pred)
+        loss1 = mape_loss(y_test, y_pred)
 
         losses += loss.item() / batch_size
         losses1 += loss1.item() / batch_size  # mae
@@ -131,10 +127,7 @@ def epoch_test(dataloader):
     return losses, losses1
 
 
-to_output = open('output.txt', 'a')
-
-
-def run_epoch(epochs, to_output=to_output):
+def run_epoch(epochs, to_output, x_train, y_train, x_test, y_test):
     train = []
     val = []  # float to double -> .astype(np.float32)
     train_loader = DataLoader(train_dataset, batch_size=batch_size,
@@ -142,9 +135,9 @@ def run_epoch(epochs, to_output=to_output):
     val_loader = DataLoader(val_dataset, batch_size=batch_size,
                             shuffle=False, drop_last=True)
     for epoch in range(epochs):
-        train_mse, train_mae = epoch_train(train_loader)
+        train_mse, train_mae = epoch_train(train_loader, x_train, y_train)
         train.append(train_mse)
-        val_mse, val_mae = epoch_test(val_loader)
+        val_mse, val_mae = epoch_test(val_loader, x_test, y_test)
         val.append(val_mse)
         str = ('Stock {} Epoch[{}/{}] | train(mse):{:.6f}, mape:{:.6f} | test(mse):{:.6f}, mape:{:.6f}\n'
                .format(stock_name, epoch + 1, epochs, train_mse, train_mae, val_mse, val_mae))
@@ -152,8 +145,8 @@ def run_epoch(epochs, to_output=to_output):
         if epoch == epochs - 1:
             to_output.write(str)
     to_output.close()
-    plt.loglog(train, label='training_error')
-    plt.loglog(val, label='validation_error')
+    plt.plot(train, label='training_error')
+    plt.plot(val, label='validation_error')
     plt.xlabel("Epoch")
     plt.ylabel("Mean Square Error")
     plt.title("Error vs Epoch")
@@ -161,4 +154,5 @@ def run_epoch(epochs, to_output=to_output):
     plt.show()
 
 
-run_epoch(epochs, to_output=to_output)
+to_output = open('output.txt', 'a')
+run_epoch(epochs, to_output, x_train, y_train, x_test, y_test)

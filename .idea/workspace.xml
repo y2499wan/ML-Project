@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7d95e8ac-a93a-4c4b-a5a8-2fbd5cc339f2" name="Changes" comment="fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hyperparameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/hyperparameters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
@@ -67,7 +66,7 @@
       <updated>1649280354708</updated>
       <workItem from="1649280356611" duration="1077000" />
       <workItem from="1651173859463" duration="466000" />
-      <workItem from="1651175240349" duration="409000" />
+      <workItem from="1651175240349" duration="1200000" />
     </task>
     <task id="LOCAL-00001" summary="ARIMA.py implemented">
       <created>1649280860065</created>
@@ -132,7 +131,28 @@
       <option name="project" value="LOCAL" />
       <updated>1649460034329</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fixed">
+      <created>1651175658934</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1651175658934</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixed">
+      <created>1651175673868</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1651175673868</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fixed">
+      <created>1651175681540</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1651175681540</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
