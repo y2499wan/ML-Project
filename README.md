@@ -1,2 +1,3 @@
 # ML-Project
-https://colab.research.google.com/drive/1BMRLC4qm2AsgzlcX-KLy2AupXCVVNK31#scrollTo=E2175FPhVCri
+slides can be found at
+https://docs.google.com/presentation/d/15PE1Czvhj3FAWcLRs2APCmTPFdrCD6zd8wOZS8__39o/edit?usp=sharing
