@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr  6 15:30:28 2022
-
-@author: wangcatherine
-"""
 from typing import Any
 import pandas as pd
 import torch
@@ -25,7 +18,7 @@ scaler_x = MinMaxScaler()
 scaler_y = MinMaxScaler()
 df = scaler_x.fit_transform(df)
 x_raw = df[:, 1:]
-y_raw = df[:, 4].reshape(-1,1)
+y_raw = df[:, 4].reshape(-1, 1)
 x_slide, y_slide = sliding_window(x_raw, y_raw, window_size)
 x_train, x_test, y_train, y_test = train_test_split(x_slide, y_slide, test_size=0.2, random_state=1, shuffle=False)
 x_train = torch.tensor(x_train.astype(np.float32))

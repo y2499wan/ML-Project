@@ -12,6 +12,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_percentage_error
 from hyperparameters import *
 
+
 def sliding_window(x, y, window_size):
     xx, yy = [], []
     for i in range(window_size, len(x)):
@@ -30,7 +31,8 @@ def _divide_no_nan(a, b):
 
 
 def mape_loss(y, y_hat, mask=None):
-    if mask is None: mask = torch.ones_like(y_hat)
+    if mask is None:
+        mask = torch.ones_like(y_hat)
 
     mask = _divide_no_nan(mask, torch.abs(y))
     mape = torch.abs(y - y_hat) * mask
@@ -64,7 +66,7 @@ def epoch_train(dataloader, model, optimizer, loss_fc, mae):
     return losses, losses1
 
 
-def epoch_test(dataloader, model, optimizer, loss_fc):
+def epoch_test(dataloader, model, loss_fc):
     model.eval()
     batch_size = len(next(iter(dataloader)))
     losses = 0  # mse
@@ -101,7 +103,7 @@ def run_epoch(epochs, to_output, train_dataset, val_dataset, model, optimizer, l
     for epoch in range(epochs):
         train_mse, train_mae = epoch_train(train_loader, model, optimizer, loss_fc, mae)
         train.append(train_mse)
-        val_mse, val_mae = epoch_test(val_loader, model, optimizer, loss_fc)
+        val_mse, val_mae = epoch_test(val_loader, model, loss_fc)
         val.append(val_mse)
         str = ('Stock {} Epoch[{}/{}] | train(mse):{:.6f}, mape:{:.6f} | test(mse):{:.6f}, mape:{:.6f}\n'
                .format(stock_name, epoch + 1, epochs, train_mse, train_mae, val_mse, val_mae))
