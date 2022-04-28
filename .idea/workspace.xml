@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d95e8ac-a93a-4c4b-a5a8-2fbd5cc339f2" name="Changes" comment="fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_methods.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649280354708</updated>
       <workItem from="1649280356611" duration="1077000" />
+      <workItem from="1651173859463" duration="141000" />
     </task>
     <task id="LOCAL-00001" summary="ARIMA.py implemented">
       <created>1649280860065</created>
