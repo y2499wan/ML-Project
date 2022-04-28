@@ -61,7 +61,7 @@ def fft_denoiser(x, n_components, to_real=True):
     return c_data
 
 def clean_data(filename):
-    path = filename + '.csv'
+    path = 'raw_data/' + filename + '.csv'
     df = pd.read_csv(path, delimiter=',', usecols=['Date', 'Open', 'High', 'Low', 'Close', 'Volume'])
 
     # TO-DOs
@@ -91,7 +91,7 @@ def clean_data(filename):
     #dpc1 = scaler.fit_transform(dpc)
 
     df_dpc = pd.DataFrame(dpc, columns=['Open', 'High', 'Low', 'Close', 'Volume'])
-    output = filename + '_cleaned.csv'
+    output = 'cleaned_data/' + filename + '_cleaned1.csv'
     df_dpc.to_csv(output)
 
 if __name__ == '__main__':

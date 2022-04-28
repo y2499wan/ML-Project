@@ -32,3 +32,21 @@ results/d40d6bad-c739-11ec-ba48-2c6dc18fe93c
 Stock PFE Epoch[20/20] | train(mse):0.033477, mape:0.226751 | test(mse):0.009913, mape:0.129082
 results/25903ea1-c73b-11ec-a80c-2c6dc18fe93c
 
+Stock PFE Epoch[20/20] | train(mse):0.033761, mape:0.228901 | test(mse):0.010216, mape:0.126873
+results/da1ef3ef-c74c-11ec-880e-2c6dc18fe93c
+
+Stock PFE Epoch[20/20] | train(mse):0.033527, mape:0.226818 | test(mse):0.009913, mape:0.129958
+results/de1df304-c74c-11ec-b65f-2c6dc18fe93c
+
+Stock PFE Epoch[20/20] | train(mse):0.036165, mape:0.248224 | test(mse):0.009739, mape:0.138217
+results/01517920-c74d-11ec-9b4b-2c6dc18fe93c
+
+Stock PFE Epoch[20/20] | train(mse):0.033575, mape:0.227676 | test(mse):0.010236, mape:0.127820
+results/0d65936f-c74d-11ec-a2c9-2c6dc18fe93c
+
+Stock PFE Epoch[20/20] | train(mse):0.033256, mape:0.225921 | test(mse):0.010055, mape:0.128162
+results/10f08a8f-c74d-11ec-9d76-2c6dc18fe93c
+
+Stock PFE Epoch[20/20] | train(mse):0.033314, mape:0.227032 | test(mse):0.009967, mape:0.126090
+results/14b8b1fe-c74d-11ec-89ba-2c6dc18fe93c
+

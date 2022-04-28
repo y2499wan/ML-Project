@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d95e8ac-a93a-4c4b-a5a8-2fbd5cc339f2" name="Changes" comment="data moved">
+    <list default="true" id="7d95e8ac-a93a-4c4b-a5a8-2fbd5cc339f2" name="Changes" comment="test refined">
+      <change afterPath="$PROJECT_DIR$/results/01517920-c74d-11ec-9b4b-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/01517920-c74d-11ec-9b4b-2c6dc18fe93c_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/0d65936f-c74d-11ec-a2c9-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/0d65936f-c74d-11ec-a2c9-2c6dc18fe93c_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/10f08a8f-c74d-11ec-9d76-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/10f08a8f-c74d-11ec-9d76-2c6dc18fe93c_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/14b8b1fe-c74d-11ec-89ba-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/14b8b1fe-c74d-11ec-89ba-2c6dc18fe93c_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/AMZN_arima.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/AMZN_arima_33bda81b-c74c-11ec-99da-2c6dc18fe93c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/AMZN_arima_8dbe1a15-c74b-11ec-b23c-2c6dc18fe93c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/AMZN_arima_d227937b-c74c-11ec-83dd-2c6dc18fe93c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/da1ef3ef-c74c-11ec-880e-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/da1ef3ef-c74c-11ec-880e-2c6dc18fe93c_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/de1df304-c74c-11ec-b65f-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/de1df304-c74c-11ec-b65f-2c6dc18fe93c_mse.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TSLA.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TSLA_cleaned.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MultiheadAttn.py" beforeDir="false" afterPath="$PROJECT_DIR$/MultiheadAttn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arima.py" beforeDir="false" afterPath="$PROJECT_DIR$/arima.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caogao.py" beforeDir="false" afterPath="$PROJECT_DIR$/caogao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cleanData.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/cleanData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hyperparameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/hyperparameters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_methods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,11 +44,15 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="27RQKCSSMtIWAhNzNfeXrGfA9o4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -73,7 +96,7 @@
       <updated>1649280354708</updated>
       <workItem from="1649280356611" duration="1077000" />
       <workItem from="1651173859463" duration="466000" />
-      <workItem from="1651175240349" duration="4882000" />
+      <workItem from="1651175240349" duration="11003000" />
     </task>
     <task id="LOCAL-00001" summary="ARIMA.py implemented">
       <created>1649280860065</created>
@@ -201,7 +224,28 @@
       <option name="project" value="LOCAL" />
       <updated>1651179084466</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="results moved">
+      <created>1651180295785</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1651180295785</updated>
+    </task>
+    <task id="LOCAL-00020" summary="test refined">
+      <created>1651182544598</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1651182544598</updated>
+    </task>
+    <task id="LOCAL-00021" summary="test refined">
+      <created>1651187764979</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1651187764979</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +263,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="ARIMA.py implemented" />
     <MESSAGE value="ARIMA.py imdplementedd" />
     <MESSAGE value="ARIMA.py editted" />
@@ -232,7 +277,9 @@
     <MESSAGE value="Methods in a new file" />
     <MESSAGE value="syntax fixed" />
     <MESSAGE value="data moved" />
-    <option name="LAST_COMMIT_MESSAGE" value="data moved" />
+    <MESSAGE value="results moved" />
+    <MESSAGE value="test refined" />
+    <option name="LAST_COMMIT_MESSAGE" value="test refined" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ML_Project$pycharm_scripts.coverage" NAME="pycharm_scripts Coverage Results" MODIFIED="1649284471765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

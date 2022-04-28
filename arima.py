@@ -60,14 +60,14 @@ n_encoder_layers = 2
 batch_size = 15
 time_embed_size = 2
 
-lensize = 100
+lensize = 25
 sizes = np.zeros(lensize)
 e1s = np.zeros(lensize)
 e2s = np.zeros(lensize)
 for i in range(lensize):
-    size = 50 + i * 10
+    size = 50 + i * 30
     sizes[i] = size
-    df = pd.read_csv("data/raw_data/TSLA.csv")
+    df = pd.read_csv("data/raw_data/AMZN.csv")
     X = df.iloc[:, 1:]
     X_simp = df['Close']
     Y = df["Close"]
@@ -82,40 +82,23 @@ for i in range(lensize):
     diff2 = np.diff(diff1, axis=0)
     diff2 = np.nan_to_num(diff2)
 
-
     decomposition = seasonal_decompose(x_train, period=7)
-    trend = decomposition.trend
-    seasonal = decomposition.seasonal
-    residual = decomposition.resid
+    trend = np.nan_to_num(decomposition.trend)
+    seasonal = np.nan_to_num(decomposition.seasonal)
+    residual = np.nan_to_num(decomposition.resid)
 
-    trend = np.nan_to_num(trend)
-    seasonal = np.nan_to_num(seasonal)
-    residual = np.nan_to_num(residual)
-
-    # 趋势序列模型训练
     trend_model = ARIMA_Model(trend, (2, 0, 3))
     trend_fit_seq = trend_model.fittedvalues
     trend_predict_seq = trend_model.predict()
 
-    # 残差序列模型训练
     residual_model = ARIMA_Model(residual, (4, 0, 4))
     residual_fit_seq = residual_model.fittedvalues
     residual_predict_seq = residual_model.predict()
 
-    # 拟合训练集
     fit_seq = pd.Series(seasonal)
     fit_seq = fit_seq.add(trend_fit_seq, fill_value=0)
     fit_seq = fit_seq.add(residual_fit_seq, fill_value=0)
 
-    '''
-    plt.plot(fit_seq, color='red', label='fit_seq')
-    plt.plot(x_train, color='blue', label='purchase_seq_train')
-    plt.legend(loc='best')
-    plt.show()
-    '''
-
-    # 预测测试集
-    # 这里测试数据的周期性是根据seasonal对象打印的结果，看到里面的数据每7天一个周期，2014-08-01~2014-08-10的数据正好和2014-04-04~2014-04-13的数据一致
     decomposition = seasonal_decompose(x_test, period=7)
     trend = decomposition.trend
     seasonal = decomposition.seasonal
@@ -146,7 +129,14 @@ for i in range(lensize):
     e1s[i] = e1
     e2s[i] = e2
 
-plt.plot(sizes, e1s, label='training error')
-plt.plot(sizes, e2s, label='testing error')
+plt.plot(sizes, e1s*100, label='Training MAPE')
+plt.plot(sizes, e2s*100, label='Testing MAPE')
 plt.legend()
+plt.xlabel('Size')
+plt.ylabel('Mean Average Percentage Error /%')
+plt.title('Arima - MAPE vs Size')
+import uuid
+
+random_fname = str(uuid.uuid1())
+plt.savefig('results\AMZN_arima_' + random_fname + '.png')
 plt.show()

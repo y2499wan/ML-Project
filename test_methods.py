@@ -130,9 +130,8 @@ def run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, mae
     plt.plot(train_mape_error, label='training_error')
     plt.plot(val_mape_error, label='validation_error')
     plt.xlabel("Epoch")
-    plt.ylabel("Mean Absolute Percentage Error")
+    plt.ylabel("Mean Absolute Percentage Error /%")
     plt.title("Error vs Epoch")
     plt.legend()
     plt.savefig(random_filename+'_mape.png')
     plt.show()
-
