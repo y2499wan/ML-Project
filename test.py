@@ -13,7 +13,7 @@ from hyperparameters import *
 from test_methods import *
 
 # =======================================================================
-df = pd.read_csv(stock_name + "_cleaned.csv")
+df = pd.read_csv("data/cleaned_data/" + stock_name + "_cleaned.csv")
 scaler_x = MinMaxScaler()
 scaler_y = MinMaxScaler()
 df = scaler_x.fit_transform(df)
