@@ -21,4 +21,14 @@ Stock PFE Epoch[5/5] | train(mse):0.129199, mape:0.563076 | test(mse):0.016807, 
 Stock PFE Epoch[5/5] | train(mse):0.147976, mape:0.594121 | test(mse):0.014194, mape:0.138415
 Stock PFE Epoch[5/5] | train(mse):0.096865, mape:0.444013 | test(mse):0.019787, mape:0.254583
 Stock PFE Epoch[5/5] | train(mse):0.131355, mape:0.568937 | test(mse):0.010562, mape:0.157435
-results/55050f73-c737-11ec-a4e6-2c6dc18fe93c.gif
+Stock PFE Epoch[5/5] | train(mse):0.117335, mape:0.565106 | test(mse):0.010449, mape:0.127055
+Stock PFE Epoch[5/5] | train(mse):0.111712, mape:0.514290 | test(mse):0.024980, mape:0.191079
+Stock PFE Epoch[5/5] | train(mse):0.101047, mape:0.517496 | test(mse):0.016340, mape:0.149732
+results/7ed58e84-c739-11ec-8ceb-2c6dc18fe93c
+
+Stock PFE Epoch[20/20] | train(mse):0.033384, mape:0.226070 | test(mse):0.009972, mape:0.128180
+results/d40d6bad-c739-11ec-ba48-2c6dc18fe93c
+
+Stock PFE Epoch[20/20] | train(mse):0.033477, mape:0.226751 | test(mse):0.009913, mape:0.129082
+results/25903ea1-c73b-11ec-a80c-2c6dc18fe93c
+

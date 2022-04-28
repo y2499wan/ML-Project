@@ -95,30 +95,44 @@ def epoch_test(dataloader, model, loss_fc):
 
 
 def run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, mae, to_output):
-    train = []
-    val = []  # float to double -> .astype(np.float32)
+    train_mse_error = []
+    val_mse_error = []  # float to double -> .astype(np.float32)
+    train_mape_error = []
+    val_mape_error = []  # float to double -> .astype(np.float32)
     train_loader = DataLoader(train_dataset, batch_size=batch_size,
                               shuffle=False, drop_last=True)
     val_loader = DataLoader(val_dataset, batch_size=batch_size,
                             shuffle=False, drop_last=True)
-    random_filename = 'results/' + str(uuid.uuid1()) + '.jpg'
+    random_filename = 'results/' + str(uuid.uuid1())
     for epoch in range(epochs):
-        train_mse, train_mae = epoch_train(train_loader, model, optimizer, loss_fc, mae)
-        train.append(train_mse)
-        val_mse, val_mae = epoch_test(val_loader, model, loss_fc)
-        val.append(val_mse)
+        train_mse, train_mape = epoch_train(train_loader, model, optimizer, loss_fc, mae)
+        train_mse_error.append(train_mse)
+        train_mape_error.append(train_mape)
+        val_mse, val_mape = epoch_test(val_loader, model, loss_fc)
+        val_mse_error.append(val_mse)
+        val_mape_error.append(val_mape)
         string = ('Stock {} Epoch[{}/{}] | train(mse):{:.6f}, mape:{:.6f} | '
-                  'test(mse):{:.6f}, mape:{:.6f}\n{}\n'
-                  .format(stock_name, epoch + 1, epochs, train_mse, train_mae, val_mse, val_mae, random_filename))
+                  'test(mse):{:.6f}, mape:{:.6f}\n{}\n\n'
+                  .format(stock_name, epoch + 1, epochs, train_mse, train_mape, val_mse, val_mape, random_filename))
         print(string, end='')
         if epoch == epochs - 1:
             to_output.write(string)
     to_output.close()
-    plt.plot(train, label='training_error')
-    plt.plot(val, label='validation_error')
+    plt.plot(train_mse_error, label='training_error')
+    plt.plot(val_mse_error, label='validation_error')
     plt.xlabel("Epoch")
     plt.ylabel("Mean Square Error")
     plt.title("Error vs Epoch")
     plt.legend()
+    plt.savefig(random_filename+'_mse.png')
     plt.show()
-    plt.savefig(random_filename)
+
+    plt.plot(train_mape_error, label='training_error')
+    plt.plot(val_mape_error, label='validation_error')
+    plt.xlabel("Epoch")
+    plt.ylabel("Mean Absolute Percentage Error")
+    plt.title("Error vs Epoch")
+    plt.legend()
+    plt.savefig(random_filename+'_mape.png')
+    plt.show()
+
