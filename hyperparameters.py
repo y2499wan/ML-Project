@@ -1,5 +1,5 @@
 # These are the hyperparameters used in test.py
-stock_name = 'PFE'
+stock_name = 'AAPL'
 
 window_size = 128
 enc_seq_len = window_size
@@ -10,7 +10,7 @@ input_size = 5
 dim_val = 64  # embedding size
 dim_attn = 128
 lr = 0.001
-epochs = 20
+epochs = 10
 
 n_heads = 8
 

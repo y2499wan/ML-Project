@@ -129,11 +129,11 @@ for i in range(lensize):
     e1s[i] = e1
     e2s[i] = e2
 
-plt.plot(sizes, e1s*100, label='Training MAPE')
-plt.plot(sizes, e2s*100, label='Testing MAPE')
+plt.plot(sizes, e1s, label='Training MAPE')
+plt.plot(sizes, e2s, label='Testing MAPE')
 plt.legend()
 plt.xlabel('Size')
-plt.ylabel('Mean Average Percentage Error /%')
+plt.ylabel('Mean Average Percentage Error')
 plt.title('Arima - MAPE vs Size')
 import uuid
 

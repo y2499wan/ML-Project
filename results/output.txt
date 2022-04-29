@@ -50,3 +50,30 @@ results/10f08a8f-c74d-11ec-9d76-2c6dc18fe93c
 Stock PFE Epoch[20/20] | train(mse):0.033314, mape:0.227032 | test(mse):0.009967, mape:0.126090
 results/14b8b1fe-c74d-11ec-89ba-2c6dc18fe93c
 
+Stock AMZN Epoch[10/10] | train(mse):0.033110, mape:0.249569 | test(mse):0.002726, mape:0.079817
+results/6a9b8b4a-c74f-11ec-a94b-2c6dc18fe93c
+
+Stock AAPL Epoch[10/10] | train(mse):0.040730, mape:0.273960 | test(mse):0.001959, mape:0.048478
+results/7a63dd06-c74f-11ec-b10d-2c6dc18fe93c
+
+Stock IBM Epoch[10/10] | train(mse):0.031184, mape:0.228269 | test(mse):0.002159, mape:0.053588
+results/85f8da64-c74f-11ec-9444-2c6dc18fe93c
+
+Stock TSLA Epoch[10/10] | train(mse):0.052037, mape:0.305283 | test(mse):0.006406, mape:0.082580
+results/900cdc62-c74f-11ec-a064-2c6dc18fe93c
+
+Stock TSLA Epoch[10/10] | train(mse):0.088200, mape:0.450023 | test(mse):0.007194, mape:0.087552
+results/2e36a25b-c750-11ec-918b-2c6dc18fe93c
+
+Stock PFE Epoch[10/10] | train(mse):0.036533, mape:0.244076 | test(mse):0.010990, mape:0.126770
+results/3961577b-c750-11ec-9582-2c6dc18fe93c
+
+Stock TSLA Epoch[10/10] | train(mse):0.115608, mape:0.524173 | test(mse):0.019104, mape:0.151900
+results/43548148-c750-11ec-a4a3-2c6dc18fe93c
+
+Stock IBM Epoch[10/10] | train(mse):0.033007, mape:0.235373 | test(mse):0.002182, mape:0.054091
+results/4a7e7d38-c750-11ec-a3af-2c6dc18fe93c
+
+Stock AAPL Epoch[10/10] | train(mse):0.037090, mape:0.258944 | test(mse):0.001958, mape:0.045785
+results/517a45bf-c750-11ec-a9d3-2c6dc18fe93c
+
