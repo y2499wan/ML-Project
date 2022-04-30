@@ -77,3 +77,12 @@ results/4a7e7d38-c750-11ec-a3af-2c6dc18fe93c
 Stock AAPL Epoch[10/10] | train(mse):0.037090, mape:0.258944 | test(mse):0.001958, mape:0.045785
 results/517a45bf-c750-11ec-a9d3-2c6dc18fe93c
 
+Stock AAPL Epoch[10/10] | train(mse):0.036512, mape:0.256126 | test(mse):0.002402, mape:0.048544
+results/8c4f2ffc-c8bb-11ec-8f6e-2c6dc18fe93c
+
+Stock AAPL Epoch[10/10] | train(mse):0.035764, mape:0.249312 | test(mse):0.002097, mape:0.045949
+results/54f2aaf9-c8be-11ec-a576-2c6dc18fe93c
+Stock AAPL Epoch[3/3] | train(mse):0.628502, mape:1.326776 | test(mse):0.008512, mape:0.117616
+results/cfd224d0-c8bf-11ec-ac2e-2c6dc18fe93c
+Stock AAPL Epoch[2/2] | train(mse):1.668526, mape:2.090191 | test(mse):0.302243, mape:0.749360
+results/a7d0f9e6-c8c0-11ec-abba-2c6dc18fe93c

@@ -10,7 +10,7 @@ input_size = 5
 dim_val = 64  # embedding size
 dim_attn = 128
 lr = 0.001
-epochs = 10
+epochs = 5
 
 n_heads = 8
 

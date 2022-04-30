@@ -20,14 +20,15 @@ df = scaler_x.fit_transform(df)
 x_raw = df[:, 1:]
 y_raw = df[:, 4].reshape(-1, 1)
 x_slide, y_slide = sliding_window(x_raw, y_raw, window_size)
-x_train, x_test, y_train, y_test = train_test_split(x_slide, y_slide, test_size=0.2, random_state=1, shuffle=False)
-x_train = torch.tensor(x_train.astype(np.float32))
-y_train = torch.tensor(y_train.astype(np.float32))
-x_val = torch.tensor(x_test.astype(np.float32))
-y_val = torch.tensor(y_test.astype(np.float32))
+x_train, x_test, y_train, y_test = \
+    [torch.tensor(_.astype(np.float32)) for _ in
+     train_test_split(x_slide, y_slide, test_size=0.2, random_state=1, shuffle=False)]
+# x_train = torch.tensor(x_train.astype(np.float32))
+# y_train = torch.tensor(y_train.astype(np.float32))
+# x_val = torch.tensor(x_test.astype(np.float32))
+# y_val = torch.tensor(y_test.astype(np.float32))
 train_dataset = TensorDataset(x_train, y_train)
-val_dataset = TensorDataset(x_val, y_val)
-
+val_dataset = TensorDataset(x_test, y_test)
 
 # initialize model
 model = Transformer(dim_val, dim_attn, input_size, batch_size, enc_seq_len, dec_seq_len, output_sequence_length,
