@@ -90,3 +90,13 @@ Stock AAPL Epoch[5/5] | train(mse):0.107880, mape:0.509331 | test(mse):0.011411,
 results/705a6389-c8c1-11ec-908c-2c6dc18fe93c
 Stock AAPL Epoch[20/20] | train(mse):0.034202, mape:0.239548 | test(mse):0.001977, mape:0.045694
 results/3acbfe01-c8c2-11ec-8059-2c6dc18fe93c
+Stock AAPL Epoch[5/5] | train(mse):0.104243, mape:0.995469 | test(mse):0.015593, mape:0.151247
+results/ef950a0e-c8e0-11ec-a7a6-2c6dc18fe93c
+Stock AAPL Epoch[5/5] | train(mse):0.106178, mape:0.938900 | test(mse):0.010669, mape:0.133852
+results/8863df21-c8e1-11ec-854c-2c6dc18fe93c
+Stock AAPL Epoch[10/10] | train(mse):0.037237, mape:0.474734 | test(mse):0.002061, mape:0.052281
+results/a6e9b37f-c8e1-11ec-b658-2c6dc18fe93c
+Stock AAPL Epoch[20/20] | train(mse):0.034522, mape:0.453645 | test(mse):0.002008, mape:0.045815
+results/f1d69dfa-c8e1-11ec-97ac-2c6dc18fe93c
+Stock AAPL Epoch[20/20] | train(mse):0.034145, mape:0.450574 | test(mse):0.002005, mape:0.045641
+results/1f8514a1-c8e4-11ec-9e9a-2c6dc18fe93c

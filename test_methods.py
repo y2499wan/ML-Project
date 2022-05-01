@@ -24,14 +24,14 @@ def sliding_window(x, y, window_size):
 
 
 def _divide_no_nan(a, b):
-    # Auxiliary function to handle divide by 0
+    # change nan and inf to 0
     div = a / b
     div[div != div] = 0.0
     div[div == float('inf')] = 0.0
     return div
 
 
-def mape_loss(y, y_hat, mask=None):
+def loss_fc_mape(y, y_hat, mask=None):
     if mask is None:
         mask = torch.ones_like(y_hat)
 
@@ -41,38 +41,38 @@ def mape_loss(y, y_hat, mask=None):
     return mape
 
 
-def epoch_train(dataloader, model, optimizer, loss_fc, mae):
+def epoch_train(dataloader, model, optimizer, loss_fc_mse):
     model.train()
     batch_size = len(next(iter(dataloader)))
     loss_mse = 0  # mse
     loss_mape = 0  # percentage loss
 
-    for x_train_spl, y_train_spl in dataloader:
+    for x_train_sample, y_train_sample in dataloader:
         # clear the gradients
         optimizer.zero_grad()
 
-        y_pred = model(x_train_spl)
-        loss = loss_fc(y_pred, y_train_spl)
-        loss1 = mae(y_pred, y_train_spl)
+        y_pred = model(x_train_sample)
+        loss = loss_fc_mse(y_pred, y_train_sample)
+        loss1 = loss_fc_mape(y_pred, y_train_sample)
 
         loss.backward()  # calculate gradients
         optimizer.step()  # update weights
 
         loss_mse += loss.item() / batch_size
-        loss_mape += loss1.item() / batch_size  # mae
+        loss_mape += loss1.item() / batch_size  # mape
 
     return loss_mse, loss_mape
 
 
-def epoch_test(dataloader, model, loss_fc):
+def epoch_test(dataloader, model, loss_fc_mse):
     model.eval()
     batch_size = len(next(iter(dataloader)))
     loss_mse = 0  # mse
     loss_mape = 0  # percentage loss
     for x_test, y_test in dataloader:
         y_pred = model(x_test)
-        cur_mse = loss_fc(y_pred, y_test)
-        cur_mape = mape_loss(y_test, y_pred)
+        cur_mse = loss_fc_mse(y_pred, y_test)
+        cur_mape = loss_fc_mape(y_test, y_pred)
 
         loss_mse += cur_mse.item() / batch_size
         loss_mape += cur_mape.item() / batch_size  # mape
@@ -80,7 +80,7 @@ def epoch_test(dataloader, model, loss_fc):
     return loss_mse, loss_mape
 
 
-def run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, mae, to_output):
+def run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc_mse, to_output):
     # float to double -> .astype(np.float32)
     train_mse, val_mse, train_mape, val_mape = np.zeros((4, epochs))
     train_loader = DataLoader(train_dataset, batch_size=batch_size,
@@ -89,8 +89,8 @@ def run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, mae
                             shuffle=False, drop_last=True)
     filename = 'results/' + str(uuid.uuid1())
     for epoch in range(epochs):
-        train_mse[epoch], train_mape[epoch] = epoch_train(train_loader, model, optimizer, loss_fc, mae)
-        val_mse[epoch], val_mape[epoch] = epoch_test(val_loader, model, loss_fc)
+        train_mse[epoch], train_mape[epoch] = epoch_train(train_loader, model, optimizer, loss_fc_mse)
+        val_mse[epoch], val_mape[epoch] = epoch_test(val_loader, model, loss_fc_mse)
         string1 = ('Stock {} Epoch[{}/{}] | train(mse):{:.6f}, mape:{:.6f} | '
                    'test(mse):{:.6f}, mape:{:.6f}\n'
                    .format(stock_name, epoch + 1, epochs,

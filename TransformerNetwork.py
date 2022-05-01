@@ -61,8 +61,8 @@ class DecoderLayer(torch.nn.Module):
 
 
 class Transformer(torch.nn.Module):
-    def __init__(self, dim_val, dim_attn, input_size, batch_size, enc_seq_len, dec_seq_len,
-                 n_encoder_layers=1, n_heads=1, time_embd=2):
+    def __init__(self, dim_val, dim_attn, input_size, batch_size, enc_seq_len, dec_seq_len, out_seq_len,
+                 n_decoder_layers=1, n_encoder_layers=1, n_heads=1, time_embd=2):
         super(Transformer, self).__init__()
         self.dim_val = dim_val
         self.input_size = input_size + time_embd

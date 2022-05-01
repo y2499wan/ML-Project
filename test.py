@@ -20,9 +20,8 @@ df = scaler_x.fit_transform(df)
 x_raw = df[:, 1:]
 y_raw = df[:, 4].reshape(-1, 1)
 x_slide, y_slide = sliding_window(x_raw, y_raw, window_size)
-x_train, x_test, y_train, y_test = \
-    [torch.tensor(_.astype(np.float32)) for _ in
-     train_test_split(x_slide, y_slide, test_size=0.2, random_state=1, shuffle=False)]
+train_test = train_test_split(x_slide, y_slide, test_size=0.2, random_state=1, shuffle=False)
+x_train, x_test, y_train, y_test = [torch.tensor(_.astype(np.float32)) for _ in train_test]
 train_dataset = TensorDataset(x_train, y_train)
 val_dataset = TensorDataset(x_test, y_test)
 
@@ -31,6 +30,5 @@ model = Transformer(dim_val, dim_attn, input_size, batch_size, enc_seq_len,
                     n_encoder_layers, n_heads, time_embed_size)
 optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 loss_fc = torch.nn.MSELoss()
-mae = torch.nn.L1Loss()
 to_output = open('results/output.txt', 'a')
-run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, mae, to_output)
+run_epoch(epochs, train_dataset, val_dataset, model, optimizer, loss_fc, to_output)

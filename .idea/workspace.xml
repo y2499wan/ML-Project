@@ -2,10 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d95e8ac-a93a-4c4b-a5a8-2fbd5cc339f2" name="Changes" comment="refine test.py">
+      <change afterPath="$PROJECT_DIR$/results/1f8514a1-c8e4-11ec-9e9a-2c6dc18fe93cAAPL_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/1f8514a1-c8e4-11ec-9e9a-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/3acbfe01-c8c2-11ec-8059-2c6dc18fe93cAAPL_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/3acbfe01-c8c2-11ec-8059-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/705a6389-c8c1-11ec-908c-2c6dc18fe93cAAPL_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/705a6389-c8c1-11ec-908c-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/8863df21-c8e1-11ec-854c-2c6dc18fe93cAAPL_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/8863df21-c8e1-11ec-854c-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/a6e9b37f-c8e1-11ec-b658-2c6dc18fe93cAAPL_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/a6e9b37f-c8e1-11ec-b658-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/ef950a0e-c8e0-11ec-a7a6-2c6dc18fe93cAAPL_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/ef950a0e-c8e0-11ec-a7a6-2c6dc18fe93c_mape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/f1d69dfa-c8e1-11ec-97ac-2c6dc18fe93cAAPL_mse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/f1d69dfa-c8e1-11ec-97ac-2c6dc18fe93c_mape.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransformerNetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/TransformerNetwork.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hyperparameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/hyperparameters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_methods.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +90,7 @@
       <updated>1649280354708</updated>
       <workItem from="1649280356611" duration="1077000" />
       <workItem from="1651173859463" duration="466000" />
-      <workItem from="1651175240349" duration="16402000" />
+      <workItem from="1651175240349" duration="20084000" />
     </task>
     <task id="LOCAL-00001" summary="ARIMA.py implemented">
       <created>1649280860065</created>
@@ -245,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651349084526</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="refine test.py">
+      <created>1651353215228</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1651353215228</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
