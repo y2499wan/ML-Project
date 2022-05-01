@@ -1,5 +1,5 @@
 # These are the hyperparameters used in test.py
-stock_name = 'AAPL'
+stock_name = 'IBM'
 
 window_size = 128
 enc_seq_len = window_size

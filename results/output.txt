@@ -100,3 +100,17 @@ Stock AAPL Epoch[20/20] | train(mse):0.034522, mape:0.453645 | test(mse):0.00200
 results/f1d69dfa-c8e1-11ec-97ac-2c6dc18fe93c
 Stock AAPL Epoch[20/20] | train(mse):0.034145, mape:0.450574 | test(mse):0.002005, mape:0.045641
 results/1f8514a1-c8e4-11ec-9e9a-2c6dc18fe93c
+Stock AAPL Epoch[20/20] | train(mse):0.019900, mape:0.398288 | test(mse):0.003196, mape:0.065275
+results/cd0bd1e2-c8e6-11ec-819d-2c6dc18fe93c
+Stock AAPL Epoch[20/20] | train(mse):0.022419, mape:0.403017 | test(mse):0.002551, mape:0.054707
+results/dcdfaec8-c8e6-11ec-82cd-2c6dc18fe93c
+Stock AMZN Epoch[20/20] | train(mse):0.020574, mape:0.562670 | test(mse):0.003841, mape:0.104330
+results/014312c6-c8e7-11ec-b708-2c6dc18fe93c
+Stock TSLA Epoch[20/20] | train(mse):0.055947, mape:0.662192 | test(mse):0.007299, mape:0.091712
+results/2317fb44-c8e7-11ec-b5f5-2c6dc18fe93c
+Stock PFE Epoch[20/20] | train(mse):0.021683, mape:0.493939 | test(mse):0.013561, mape:0.149107
+results/38c53bed-c8e7-11ec-ba6a-2c6dc18fe93c
+Stock IBM Epoch[20/20] | train(mse):0.020982, mape:0.371785 | test(mse):0.003485, mape:0.074183
+results/468d092c-c8e7-11ec-b898-2c6dc18fe93c
+Stock IBM Epoch[20/20] | train(mse):0.015873, mape:0.307815 | test(mse):0.002831, mape:0.062677
+results/18f8f147-c8e8-11ec-bfb6-2c6dc18fe93c
